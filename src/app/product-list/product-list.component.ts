@@ -13,6 +13,9 @@ export class ProductListComponent {
   compartir() {
     window.alert('El producto ha sido compartido!');
   }
+  onNotify() {
+    window.alert('Usted será notificado cuando el producto salga a la venta');
+  }
 }
 
 /*
