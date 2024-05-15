@@ -1,0 +1,6 @@
+<h3>Costos de envío</h3>
+<div class="shipping-item" *ngFor="let envio of costosDeEnvio | async">
+    <span>{{ envio.tipo }}</span>
+    <span>{{ envio.precio}}</span>
+
+</div>

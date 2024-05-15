@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Producto, productos } from '../productos';
+import { CarritoService } from '../carrito.service'
 
 @Component({
   selector: 'app-detalle-producto',
@@ -11,7 +12,10 @@ export class DetalleProductoComponent implements OnInit{
   
   producto: Producto | undefined;
 
-  constructor(private ruta: ActivatedRoute) {}
+  constructor(
+    private ruta: ActivatedRoute,
+    private carritoService: CarritoService
+    ) {}
 
   ngOnInit() {
     // Obterner el id que viene en la ruta
@@ -20,5 +24,10 @@ export class DetalleProductoComponent implements OnInit{
 
     // Buscar el producto con el id de productoId
     this.producto = productos.find(producto => producto.id === productoID);
+  }
+
+  agregarAlCarrito(producto: Producto) {
+    this.carritoService.agregarAlCarrito(producto);
+    window.alert('El producto se ha añadido al carrito de compras');
   }
 }
